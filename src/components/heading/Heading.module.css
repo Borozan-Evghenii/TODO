@@ -1,0 +1,13 @@
+.heading{
+  font-weight: 700;
+}
+.date{
+  color: var(--gray);
+}
+
+.headingContainer{
+  position: sticky;
+  top: 0;
+  background-color: var(--white);
+  padding: 0 0 20px 0 ;
+}
