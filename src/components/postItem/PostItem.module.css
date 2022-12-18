@@ -1,9 +1,0 @@
-.postItem{
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 2px 0px;
-  border-radius: 5px;
-}

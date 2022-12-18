@@ -21,7 +21,10 @@ body{
 }
 
 .appContainer{
-  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 80vw;
   padding: 20px;
   height: 90vh;
   background-color: #fff;

@@ -1,28 +1,32 @@
 import "./App.css";
-import Heading from "./components/heading/Heading";
-import PostList from "./components/postList/PostList";
-import BottomBar from "./components/bottomBar/BottomBar";
+import React, { useState } from "react";
+import TodoItem from "./components/TodoItem/TodoItem";
+import data from "./API/Posts";
 
 export default function App() {
-  const posts = [
-    { _id: 1, category: "important", body: "Make a TODO app with react" },
-    { _id: 2, category: "important", body: "Make a CV for intership" },
-    { _id: 3, category: "important", body: "Make a TODO app with react" },
-    { _id: 4, category: "important", body: "Make a TODO app with react" },
-    { _id: 5, category: "important", body: "Make a TODO app with react" },
-    { _id: 6, category: "important", body: "Make a TODO app with react" },
-    { _id: 7, category: "important", body: "Make a TODO app with react" },
-    { _id: 8, category: "important", body: "Make a TODO app with react" },
-    { _id: 9, category: "important", body: "Make a TODO app with react" },
-    { _id: 10, category: "important", body: "Make a TODO app with react" },
-    { _id: 11, category: "important", body: "Make a TODO app with react" },
-  ];
+  // useEffect(() => {
+  //   getPosts();
+  // }, []);
+  // async function getPosts() {
+  //   const posts = await PostService.getAll();
+  //   setPost(posts);
+  // }
+
+  const [posts, setPost] = useState(data);
+  const [status, setStatus] = useState(false);
 
   return (
     <div className="appContainer">
-      <Heading />
-      <PostList posts={posts} />
-      <BottomBar />
+      {posts.map((post) => (
+        <TodoItem
+          key={post.id}
+          onClick={() => setStatus(!status)}
+          status={status}
+          completed={post.completed}
+        >
+          {post.title}
+        </TodoItem>
+      ))}
     </div>
   );
 }

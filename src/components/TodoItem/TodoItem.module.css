@@ -1,0 +1,11 @@
+.itemContainer{
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border: 1px solid var(--dark);
+  border-radius: 20px;
+}
+
+.completed{
+  text-decoration: line-through;
+}
