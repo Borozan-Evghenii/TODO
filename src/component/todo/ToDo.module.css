@@ -1,0 +1,16 @@
+.itemContainer{
+  width: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--gray);
+}
+
+.close{
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

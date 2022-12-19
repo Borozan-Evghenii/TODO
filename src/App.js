@@ -1,7 +1,7 @@
 import "./App.css";
 import React, { useState } from "react";
-import TodoItem from "./components/TodoItem/TodoItem";
-import data from "./API/Posts";
+import ToDoForm from "./component/form/ToDoForm";
+import ToDo from "./component/todo/ToDo";
 
 export default function App() {
   // useEffect(() => {
@@ -12,20 +12,44 @@ export default function App() {
   //   setPost(posts);
   // }
 
-  const [posts, setPost] = useState(data);
-  const [status, setStatus] = useState(false);
+  const [todos, setTodos] = useState([]);
+
+  const addTask = (value) => {
+    if (value) {
+      const newItem = {
+        id: Date.now(),
+        title: value,
+        completed: false,
+      };
+      setTodos([...todos, newItem]);
+    }
+  };
+
+  const removeTask = (id) => {
+    setTodos([...todos.filter((todo) => todo.id !== id)]);
+  };
+
+  const handleToggle = (id) => {
+    setTodos([
+      ...todos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : { ...todo }
+      ),
+    ]);
+  };
 
   return (
     <div className="appContainer">
-      {posts.map((post) => (
-        <TodoItem
-          key={post.id}
-          onClick={() => setStatus(!status)}
-          status={status}
-          completed={post.completed}
-        >
-          {post.title}
-        </TodoItem>
+      <header>
+        <h1>List contain: {todos.length}</h1>
+      </header>
+      <ToDoForm addTask={addTask} />
+      {todos.map((todo) => (
+        <ToDo
+          key={todo.id}
+          todo={todo}
+          toggleTask={handleToggle}
+          removeTask={removeTask}
+        />
       ))}
     </div>
   );
