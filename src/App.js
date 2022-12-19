@@ -1,56 +1,25 @@
 import "./App.css";
 import React, { useState } from "react";
-import ToDoForm from "./component/form/ToDoForm";
-import ToDo from "./component/todo/ToDo";
+import Header from "./components/header/Header";
+import PostList from "./components/postList/PostList";
+import BottomBar from "./components/bottomBar/BottomBar";
+import Template from "./components/template/Template";
+import Modal from "./components/modal/Modal";
 
 export default function App() {
-  // useEffect(() => {
-  //   getPosts();
-  // }, []);
-  // async function getPosts() {
-  //   const posts = await PostService.getAll();
-  //   setPost(posts);
-  // }
-
-  const [todos, setTodos] = useState([]);
-
-  const addTask = (value) => {
-    if (value) {
-      const newItem = {
-        id: Date.now(),
-        title: value,
-        completed: false,
-      };
-      setTodos([...todos, newItem]);
-    }
-  };
-
-  const removeTask = (id) => {
-    setTodos([...todos.filter((todo) => todo.id !== id)]);
-  };
-
-  const handleToggle = (id) => {
-    setTodos([
-      ...todos.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : { ...todo }
-      ),
-    ]);
-  };
+  const [tasks, setTasks] = useState([
+    { id: 1, task: "Create App", completed: true },
+    { id: 2, task: "Create App", completed: false },
+    { id: 3, task: "Create App", completed: false },
+    { id: 3, task: "Create App", completed: true },
+  ]);
 
   return (
     <div className="appContainer">
-      <header>
-        <h1>List contain: {todos.length}</h1>
-      </header>
-      <ToDoForm addTask={addTask} />
-      {todos.map((todo) => (
-        <ToDo
-          key={todo.id}
-          todo={todo}
-          toggleTask={handleToggle}
-          removeTask={removeTask}
-        />
-      ))}
+      <Header tasks={tasks}>My Tasks</Header>
+      {/* <Modal/> */}
+      {tasks.length ? <PostList /> : <Template> Add New TASK</Template>}
+      <BottomBar />
     </div>
   );
 }

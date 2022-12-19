@@ -1,7 +1,7 @@
 :root{
-  --white: #ffffff;
-  --dark: #020202;
-  --gray: #222222;
+  --bg: #FFD76E;
+  --dark: #222;
+  --gray: rgba(217, 217, 217, .5);
 
 }
 
@@ -16,19 +16,18 @@ body{
   height: 100vh;
   display: flex;
   align-items: center;
+  background-color: var(--bg);
   justify-content: center;
 }
 
 .appContainer{
+  width: 390px;
+  background-color: #fff;
   display: flex;
+  position: relative;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-
-}
-
-
-.completed{
-  text-decoration:line-through;
+  height: 90vh;
+  border: 2px solid var(--dark);
+  border-radius: 20px;
+  padding: 40px 30px;
 }

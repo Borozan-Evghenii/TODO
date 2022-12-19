@@ -1,0 +1,23 @@
+.item{
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+  background-color: var(--gray);
+  color: var(--dark);
+  border-radius: 20px;
+
+}
+
+.itemContent{
+  font-size: 14px;
+  line-height: 1;
+}
+
+.circle{
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  border: 1px solid var(--dark);
+  background-color: transparent;
+}
