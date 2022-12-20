@@ -6,7 +6,7 @@
   background-color: var(--gray);
   color: var(--dark);
   border-radius: 20px;
-
+  cursor: pointer;
 }
 
 .itemContent{
@@ -20,4 +20,28 @@
   border-radius: 20px;
   border: 1px solid var(--dark);
   background-color: transparent;
+  position: relative;
+  transition: all .2s ease;
 }
+
+.completed::after{
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: 2px;
+  background-color: var(--dark);
+  border-radius: 20px;
+  opacity: 0.3;
+  transition: all .2s ease;
+
+}
+
+.textCompleted{
+  text-decoration: line-through;
+  opacity: .3;
+  transition: all .2s ease;
+}
+

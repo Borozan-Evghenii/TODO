@@ -5,3 +5,15 @@
   gap: 20px;
   overflow: auto;
 }
+
+.postListContainer::-webkit-scrollbar {
+	width: 6px;
+	background-color: var(--gray);
+  border-radius: 20px;
+  display: none;
+}
+
+.postListContainer::-webkit-scrollbar-thumb {
+	background-color: var(--dark);
+  border-radius: 20px;
+}

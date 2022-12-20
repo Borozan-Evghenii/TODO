@@ -7,6 +7,8 @@ export default function Header({ children, tasks }) {
     setCompletedCount([...tasks.filter((task)=> task.completed === true)])
   }, [tasks])
 
+  
+  const setBar = completedCount.length / tasks.length * 100;
 
   
 
@@ -22,7 +24,7 @@ export default function Header({ children, tasks }) {
         </div>
       </div>
       <div className={style.bar}>
-        <div className={style.accentBar}></div>
+        <div style={{width: `${setBar}%`}} className={style.accentBar}></div>
       </div>
     </header>
   )

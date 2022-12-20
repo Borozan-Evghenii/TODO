@@ -18,6 +18,9 @@
   padding: 20px;
   background: white;
   border-radius: 20px ;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .modalContainer form{
