@@ -6,13 +6,7 @@ export default function Header({ children, tasks }) {
   useEffect(() => {
     setCompletedCount([...tasks.filter((task)=> task.completed === true)])
   }, [tasks])
-
-  
   const setBar = completedCount.length / tasks.length * 100;
-
-  
-
-
   return (
     <header className={style.header}>
       <div className={style.content}>

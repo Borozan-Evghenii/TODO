@@ -1,6 +1,7 @@
 .item{
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 20px;
   gap: 20px;
   background-color: var(--gray);
@@ -8,7 +9,11 @@
   border-radius: 20px;
   cursor: pointer;
 }
-
+.itemCont{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
 .itemContent{
   font-size: 14px;
   line-height: 1;
@@ -45,3 +50,8 @@
   transition: all .2s ease;
 }
 
+.icon{
+  display: flex;
+  align-self: center;
+  justify-self: flex-end;
+}

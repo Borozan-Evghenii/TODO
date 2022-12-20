@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Header from "./components/header/Header";
 import PostList from "./components/postList/PostList";
 import BottomBar from "./components/bottomBar/BottomBar";
@@ -29,7 +29,30 @@ export default function App() {
     }
   };
 
-  const removeTask = () => {};
+  const autoSort = () => {
+    setTasks(() => [
+      ...tasks.sort((a, b) => {
+        const completed = a.completed;
+        const uncompleted = b.completed;
+        if (completed > uncompleted) {
+          return 1;
+        }
+        if (completed < uncompleted) {
+          return -1;
+        }
+        return 0;
+      }),
+    ]);
+  };
+
+  useEffect(() => {
+    autoSort();
+  }, [tasks]);
+
+  const removeTask = (id) => {
+    console.log(id);
+    setTasks([...tasks.filter((task) => task.id !== id)]);
+  };
 
   const completedTask = (id) => {
     setTasks([
@@ -52,7 +75,11 @@ export default function App() {
         ""
       )}
       {tasks.length ? (
-        <PostList tasks={tasks} completedTask={completedTask} />
+        <PostList
+          tasks={tasks}
+          completedTask={completedTask}
+          removeTask={removeTask}
+        />
       ) : (
         <Template> Add New TASK</Template>
       )}
